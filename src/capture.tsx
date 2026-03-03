@@ -5,15 +5,11 @@ import {
   showToast,
   Toast,
   getPreferenceValues,
+  openExtensionPreferences,
   popToRoot,
 } from "@raycast/api";
 import { existsSync, mkdirSync, appendFileSync } from "fs";
 import { join } from "path";
-
-interface Preferences {
-  vaultPath: string;
-  dailyNotePath: string;
-}
 
 interface FormValues {
   thought: string;
@@ -21,7 +17,8 @@ interface FormValues {
 
 export default function Command() {
   function handleSubmit(values: FormValues) {
-    const { vaultPath, dailyNotePath } = getPreferenceValues<Preferences>();
+    const { vaultPath, dailyNotePath } =
+      getPreferenceValues<Preferences.Capture>();
 
     const now = new Date();
     const date = now.toISOString().split("T")[0];
@@ -66,6 +63,10 @@ export default function Command() {
       actions={
         <ActionPanel>
           <Action.SubmitForm title="Capture Thought" onSubmit={handleSubmit} />
+          <Action
+            title="Open Extension Preferences"
+            onAction={openExtensionPreferences}
+          />
         </ActionPanel>
       }
     >

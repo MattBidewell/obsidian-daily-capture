@@ -7,7 +7,7 @@ Quickly capture timestamped thoughts into your Obsidian daily note without leavi
 1. Install the extension
 2. On first launch, Raycast will ask you to configure:
    - **Vault Path** — the absolute path to your Obsidian vault (e.g. `/Users/you/Documents/MyVault`)
-   - **Daily Note Path** — the folder within your vault where daily notes are stored (defaults to `03 projects/Daily`)
+   - **Daily Note Path** — the folder within your vault where daily notes are stored.
 
 ## Usage
 
